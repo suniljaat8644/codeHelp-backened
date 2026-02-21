@@ -28,13 +28,13 @@ export const debugProb = async (req, res) => {
   IMPORTANT CONTEXT: This code is a snippet from a competitive programming platform (like LeetCode, HackerRank, or CodeChef). 
   DO NOT flag missing \`main\` functions, missing class definitions, or missing module imports as mistakes or syntax errors. Focus purely on the logic, time/space complexity, and algorithmic correctness of the provided function/snippet.
   
-  Analyze the user's code and pinpoint any core programming weaknesses or conceptual misunderstandings they seem to be struggling with based on this snippet.
+  Analyze the user's code and pinpoint the highly specific algorithmic concept, data structure mechanics, or edge case they are struggling with based on this snippet.
   
   IMPORTANT: You must return ONLY a valid JSON object with the following structure, and nothing else (no markdown wrapping, no extra text):
   {
     "mistakesAndFeedback": "Your detailed explanation of mistakes and perfections here...",
     "perfectCode": "The complete perfect code in ${language} here... (If the code is incomplete, leave this as an empty string)",
-    "userWeaknesses": "A short, 1-3 word categorical phrase describing the core weakness (e.g., 'Time Complexity', 'Recursion', 'Syntax Error', 'Logic Error')"
+    "userWeaknesses": "A highly specific 2-5 word phrase describing the exact algorithmic or conceptual weakness (e.g., 'Two Pointer Edge Case', 'DP State Initialization', 'Graph Cycle Detection', 'Binary Search Boundary', 'HashMap Key Conflict'). DO NOT use generic terms like 'Logic Error', 'Syntax Error', or 'General Logic'."
   }
     
 
