@@ -55,11 +55,18 @@ ${code}
 };
 
 export const explainProblem = async (req, res) => {
-  const { problem, outputLang } = req.body;
+  const { problem, outputLang, callCount = 1 } = req.body;
+
+  let detailLevel = "in simple words";
+  if (callCount === 2) {
+    detailLevel = "with a more detailed breakdown, providing a real-world analogy to help visualize the problem";
+  } else if (callCount >= 3) {
+    detailLevel = "with an extremely detailed, step-by-step intuitive breakdown of the problem requirements, constraints, and edge cases";
+  }
 
   const prompt = `
-Explain the following coding problem in ${outputLang} language simple words.
-Do NOT give any algorithm or code.
+Explain the following coding problem in ${outputLang} language ${detailLevel}.
+Do NOT give any algorithm or code. Provide a fresh perspective compared to previous explanations.
 
 Problem:
 ${problem}
@@ -70,11 +77,18 @@ ${problem}
 };
 
 export const giveHints = async (req, res) => {
-  const { problem, outputLang } = req.body;
+  const { problem, outputLang, callCount = 1 } = req.body;
+
+  let hintLevel = "Give 3 helpful initial hints for this coding problem";
+  if (callCount === 2) {
+    hintLevel = "Give 3 more specific and directional hints helping build the logic without giving away the full answer for this coding problem";
+  } else if (callCount >= 3) {
+    hintLevel = "Give 3 highly detailed advanced hints that reveal the optimal approach, focusing on data structures and algorithms to use for this coding problem";
+  }
 
   const prompt = `
-Give 3 helpful hints for this coding problem in ${outputLang} language.
-Do NOT give the final solution or code.
+${hintLevel} in ${outputLang} language.
+Do NOT give the final solution or code. Ensure these hints are different and progressively more revealing than previous levels.
 
 Problem:
 ${problem}
