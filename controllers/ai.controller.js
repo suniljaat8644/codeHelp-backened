@@ -24,6 +24,10 @@ export const debugProb = async (req, res) => {
   const prompt = `
   Check my following code and tell me every mistake. And tell me what perfections I can do in this code.
   Tell using the line numbers which have mistakes. If the code is not completed, specify that it is incomplete.
+  
+  IMPORTANT CONTEXT: This code is a snippet from a competitive programming platform (like LeetCode, HackerRank, or CodeChef). 
+  DO NOT flag missing \`main\` functions, missing class definitions, or missing module imports as mistakes or syntax errors. Focus purely on the logic, time/space complexity, and algorithmic correctness of the provided function/snippet.
+  
   Analyze the user's code and pinpoint any core programming weaknesses or conceptual misunderstandings they seem to be struggling with based on this snippet.
   
   IMPORTANT: You must return ONLY a valid JSON object with the following structure, and nothing else (no markdown wrapping, no extra text):
@@ -32,6 +36,7 @@ export const debugProb = async (req, res) => {
     "perfectCode": "The complete perfect code in ${language} here... (If the code is incomplete, leave this as an empty string)",
     "userWeaknesses": "A short, 1-3 word categorical phrase describing the core weakness (e.g., 'Time Complexity', 'Recursion', 'Syntax Error', 'Logic Error')"
   }
+    
 
   Code :
   ${code}
